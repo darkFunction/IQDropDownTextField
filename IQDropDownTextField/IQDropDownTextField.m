@@ -219,11 +219,11 @@
     {
         if (self.isOptionalDropDown && row == 0)
         {
-            super.text = @"";
+            self.text = @"";
         }
         else
         {
-            super.text = [_ItemListsInternal objectAtIndex:row];
+            self.text = [_ItemListsInternal objectAtIndex:row];
         }
         
         [self.pickerView selectRow:row inComponent:0 animated:animated];
@@ -301,7 +301,7 @@
         {
             if (self.isOptionalDropDown)
             {
-                return  [super.text length]  ?   [self.datePicker.date copy]    :   nil;    break;
+                return  [self.text length]  ?   [self.datePicker.date copy]    :   nil;    break;
             }
             else
             {
@@ -312,7 +312,7 @@
         {
             if (self.isOptionalDropDown)
             {
-                return  [super.text length]  ?   [self.timePicker.date copy]    :   nil;    break;
+                return  [self.text length]  ?   [self.timePicker.date copy]    :   nil;    break;
             }
             else
             {
@@ -323,7 +323,7 @@
         {
             if (self.isOptionalDropDown)
             {
-                return  [super.text length]  ?   [self.dateTimePicker.date copy]    :   nil;    break;
+                return  [self.text length]  ?   [self.dateTimePicker.date copy]    :   nil;    break;
             }
             else
             {
@@ -401,7 +401,7 @@
             if (date)
             {
                 _selectedItem = selectedItem;
-                super.text = selectedItem;
+                self.text = selectedItem;
                 [self.datePicker setDate:date animated:animated];
                 
                 if ([self.delegate respondsToSelector:@selector(textField:didSelectItem:)])
@@ -419,7 +419,7 @@
             if (date)
             {
                 _selectedItem = selectedItem;
-                super.text = selectedItem;
+                self.text = selectedItem;
                 [self.timePicker setDate:date animated:animated];
                 
                 if ([self.delegate respondsToSelector:@selector(textField:didSelectItem:)])
@@ -437,7 +437,7 @@
             if (date)
             {
                 _selectedItem = selectedItem;
-                super.text = selectedItem;
+                self.text = selectedItem;
                 [self.timePicker setDate:date animated:animated];
                 
                 if ([self.delegate respondsToSelector:@selector(textField:didSelectItem:)])
@@ -450,7 +450,7 @@
             break;
         }
         case IQDropDownModeTextField:{
-            super.text = selectedItem;
+            self.text = selectedItem;
         }
         break;
     }
